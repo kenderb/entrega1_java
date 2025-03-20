@@ -37,10 +37,20 @@ public class AgeCalculator {
     public static int scanYear() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el año: ");
-        int year = scanner.nextInt();
+        String input = scanner.nextLine();
+        int year = 0;
+
+        // Se valida que el año sea un número entero
+        try {
+            year = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return year;
+        }
+
         scanner.close();
 
         return year;
     }
+    
 }
 

@@ -4,7 +4,7 @@
  */
 import java.util.Scanner;
 
-public class AgeCalculator {
+public class Siglo {
     public static void main(String[] args) {
         // Se solicita el año al usuario
         int year = scanYear();
@@ -15,12 +15,12 @@ public class AgeCalculator {
             return;
         }
 
-        int numero_de_siglo = siglo( year );
-        int numero_primer_anho = primerAnho( numero_de_siglo );
+        int numeroDeSiglo = siglo( year );
+        int numeroprimer_anho = primer_anho( numeroDeSiglo );
 
         //  Se imprimen los resultados
-        System.out.println( "El numero del siglo es: " + numero_de_siglo );
-        System.out.println( "El numero del primer año es: " + numero_primer_anho );
+        System.out.println( "El numero del siglo es: " + numeroDeSiglo );
+        System.out.println( "El numero del primer año es: " + numeroprimer_anho );
     }
     
     // Se calcula el siglo
@@ -29,16 +29,17 @@ public class AgeCalculator {
     }
     
     // Se calcula el primer año del siglo
-    public static int primerAnho( int siglo ) {
+    public static int primer_anho( int siglo ) {
         return (siglo - 1) * 100 + 1;
     }
 
     // Se solicita el año al usuario
     public static int scanYear() {
+        int year = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el año: ");
         String input = scanner.nextLine();
-        int year = 0;
+        scanner.close();
 
         // Se valida que el año sea un número entero
         try {
@@ -47,10 +48,6 @@ public class AgeCalculator {
             return year;
         }
 
-        scanner.close();
-
         return year;
     }
-    
 }
-
